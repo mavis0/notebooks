@@ -1,0 +1,163 @@
+1.基本内容
+	CSS代表 Cascading Style Sheet 层叠样式表 定义HTML在浏览器内的显示样式，如文字大小、颜色、字体加粗等。使用CSS的好处是可以使不同网页位置的文字有着统一的样式。
+	可以用<span></span> 配合CSS来设置样式。
+	CSS样式：选择符{声明}
+		选择符：选择器，声明网页哪一部分应用样式规则
+		声明：属性：值。各个属性之间用;隔开
+	CSS注释：/*注释语句*/
+2.CSS插入的三种样式
+    2.1 内联式
+	    <p style="color:red">这里的文字是红色的。</p> 内联式只能放在前面那个标签里。多个CSS样式要用;隔开
+	2.2 嵌入式
+	    <style type="text/css">span{color:red;}</style>用来将全部相同的部分span设置为相同的格式，一般写在<head>里
+	2.3 外部式
+	    将CSS样式单独做一个后缀名为.css的文件然后加载到html文件内，所用代码：<link href="加载文件名字" rel="stylesheet" type="text/css">，后两者是固定写法，link标签一般位于<head>内
+	2.4 三种比较
+	    在权值相同的情况下，内联式 > 嵌入式 > 外部式 就近原则（如果嵌入式写在外部式以前的话，也是通常写法）
+3.选择符
+    3.1 标签选择器
+	    p, html, span, h1等
+	3.2 类选择器
+	    .类选择器名称{css代码} + 在标签内增加class属性，如<p class="类选择器名称"></p>，类选择器名称必须是英文。在文档中可以使用多次，并且可以使用多个类属性。
+	3.3 ID选择器
+	    #id选择器{css代码}，用法和类选择器相似。但是在文档中使用只能使用一次，而且只能使用一个id属性。
+	3.4 子选择器
+	    .类>第一个子元素{css代码}，只作用于类中第一个子元素，其他第二、第三等个子元素没效果。如<p class=类>  <第一个子元素> </第一个子元素> </p>
+	3.5 后代选择器
+	    .类 子元素{css代码}，作用于类中所有子元素，只要是这个子元素，就有效果。
+	3.6 通用选择器
+	    *{css代码}，作用于html所有的标签元素。
+	3.7 伪类选择符
+	    a:hover{css代码}  暂时不显示，某种动作之后显示。兼容性<a>最好，可以兼容所有浏览器。hover值鼠标指在上面是元素样式发生变化。
+	3.8 分组选择器
+	    h1,span{color:red;} 和 h1{color:red;} span{color:red} 效果相同。多个标签元素设置同一个样式。
+4. CSS特性
+    4.1 继承
+	    包含更准确，若标签元素中包含其他标签，有些特性能应用这些其他标签上，如color特性，但border特性却不能显示。
+	4.2 特殊性
+	    计算权值。当元素能匹配多个样式时，选择权值最大的显示。其中继承为0.1，标签为1，类选择为10，ID选择为100。任何元素只属于他最近的标签，或者继承，然后再声明的样式中寻找最大的
+	4.3 层叠
+	    当元素匹配多个相同权值时，会应用最后的一个样式，即相同权值，就近原则。
+	4.4 重要性
+	    当某个样式需要突出显示时，可以赋予他最高的权值，也就是!important，在分号之前。#p.fisrt 表示p标签和类first。
+5. CSS格式化排版
+    5.1 字体
+	    声明：{font-family:"宋体/Microsoft Yahei";}
+	5.2 字号、颜色
+	    声明：{font-size:12px;color:#666;}
+	5.3 粗体
+	    声明：{font-weight:bold;}
+	5.4 斜体
+	    font-style:itallc;
+	5.5 下划线
+	    text-decoration:underline;
+	5.6 删除线
+	    text-decoration:line-through;
+	5.7 缩进
+	    text-indent:2em;
+	5.8 行间距（行高）
+	    line-height:2em;
+	5.9 文字间距、字母间距
+	    word-spacing:50px;
+		letter-spacing:20px;
+	5.10 对齐
+	    text-align:center/left;
+6. CSS盒模型
+    6.1 元素分类-块级元素
+	    常用的块状元素有：
+        <div>、<p>、<h1>...<h6>、<ol>、<ul>、<dl>、<table>、<address>、<blockquote> 、<form>
+        a{display:block;} => 也可以将内联元素转换成块级元素
+		块级元素特点：
+		    1.从新的一行起，其后元素也另起一行
+			2.高度、宽度、行高以及顶和底边距都可设置
+			3.宽度不设置，和父元素的宽度一致
+	6.2 元素分级-内联元素
+		常用的内联元素有：
+        <a>、<span>、<br>、<i>、<em>、<strong>、<label>、<q>、<var>、<cite>、<code>
+		div{display:inline;} => 也可以将块级元素转换成内联元素
+		内联元素特点：
+		    1.和其他元素一行，不新起一行
+			2.元素的高度、宽度及顶部和底部边距不可设置
+			3.元素的宽度就是它包含的文字或图片的宽度，不可改变。
+	6.3 元素分类--内联块状元素
+	    常用的内联块状元素有：
+        <img>、<input>
+		a{display:inline-block;} => 也可以将内联元素转换成内联块状元素
+		内联块状元素特点：
+		    1.和其他元素一行，不新起一行
+			2.高度、宽度、行高以及顶和底边距都可设置
+	6.4 盒模型
+	    块级标签都具备合模型的特征
+		6.4.1 边框
+		    区分外部的线，有粗细、样式、颜色三个属性
+			div{border:2px solid red;}  <====> div{border-width:2px;border-style:solid;border-color:red}
+			其中width可以设置为thin,medium,thick,或者有px表示，style有dashed,dotted,solid三种选项，color可以设置为十六进制颜色，如#666，
+			其中还可选择border-bottom、border-top、border-left、border-right指定单边显示
+		6.4.2 宽度和高度
+		    CSS定义的宽度和高度是内容的宽度和高度
+			而一个元素实际宽度（盒子的宽度）=左边界+左边框+左填充+内容宽度+右填充+右边框+右边界。
+		6.4.3 填充
+		    元素内容与边框之间是可以设置距离的，称之为“填充”。
+			div{padding:20px 10px 15px 30px}四个参数是顺时针，分别是padding-top、padding-right、padding-bottom、padding-left，也可以分别单独设置
+			div{padding:10px}上下左右都一样、div{padding 10px 20px} 上下10px，左右20px。这里的距离指的是内容与边框之间的距离。其实把内容想象成一个框。
+		6.4.4 边界
+            元素与其它元素之间的距离可以使用边界（margin）来设置。
+            div{margin:20px 10px 15px 30px} 四个参数用法同填充，上下、左右同时设置也同填充
+            padding和margin的区别，padding在边框里，margin在边框外。
+	6.5 盒模型简写
+	    6.5.1 距离值缩写
+			margin:10px 相当于上下左右都是10px
+			margin:10px 20px 上下10px，左右20px。
+			margin:10px 20px 30px  上10px 左右20px 下30px。padding、border用法相同
+		6.5.2 颜色值缩写
+		    当颜色样式是16位编曲时，每两位相同可以缩写一半。如color:#336699; => color:#369
+		6.5.3 多个字体值缩写
+		    body{font-style:italic;font-variant:small-caps; font-weight:bold; font-size:12px; line-height:1.5em; font-family:"宋体",sans-serif;}
+		        =>    body{font:italic  small-caps  bold  12px/1.5em  "宋体",sans-serif;}
+			至少要指定 font-size 和 font-family 属性，font-size 与 line-height 中间要加入“/”斜扛。
+7. CSS布局模型
+    7.1 流动模型（Flow）
+	    默认布局模式，块内元素之间自上而下按顺序垂直延伸分布，默认状态下，块状元素的宽度都为100%。内联元素之间从左到右水平分布显示。
+	7.2 浮动模型（Float）
+	    将块级元素并排显示，div{float:right/left;} 多个左对齐就参数全选成left，一左一右就一个left、一个right。
+	7.3 层模型（Layer）
+	    类似于photoshop图层，层模型有三种形式
+	    7.3.1 绝对定位(position: absolute)
+		    从文档流中拖出来，在最接近的一个具有定位属性的父包含块进行绝对定位，通常就是在浏览器窗口中进行绝对定位，添加position声明，值是absolute
+			通过距离边上下左右的距离定位，如div{position:absolute; rigth:20px; top:20px} => 右上角距离右边和上边20px
+		7.3.2 相对定位（position：relative）
+		    表示在正常文档流中的偏移位置，而且仍然占据原有位置。也就是相当于原本位置的偏移。用法和绝对定位类似。
+		    div{position:relative; rigth:20px; top:20px} => 相对于原有位置右上角距离右边和上边20px
+		7.3.3 固定定位(position: fixed)
+		    固定在视图（屏幕内的网页窗口）的某个位置，不会因为滚动条的滚动发生变化。比如小广告。固定在网页右下角。
+			div{position:fixed;right=0;bottom:0}固定在右下角。
+	    7.3.4 相对绝对定位
+		    1、参照定位的元素必须是相对定位元素的前辈元素；
+			2、参照定位的元素必须加入position:relative;
+			3、定位元素加入position:absolute，便可以使用top、bottom、left、right来进行偏移定位了。
+8. 相关值设置
+    8.1 颜色值设置
+	    color:red 或 color:rgb(133, 45,200) 或 color:rgb(20%,33%,25%) 或 color:#00ffff{其原理其实也是 RGB 设置，但是其每一项的值由 0-255 变成了十六进制 00-ff}
+	8.2 长度值设置
+	    px:像素点
+		em：相当于字体的大小。如font-size:12px;text-indent:2em; =>  缩进为12*2=24px。以及当p的子元素单位为em时，以p的font-size为基础
+        百分比：font-size:12px;line-height:130%  ====>  设置行高（行间距）为字体的130%（12 * 1.3 = 15.6px）		
+9. CSS样式设置小技巧
+    9.1 设置水平居中
+	    9.1.1 行内元素水平居中
+		    对于文本、图片等行内元素，水平居中是通过父元素设置text-align:center来实现的。这里的父元素指的是div等块状标签。
+		9.1.2 块状元素水平居中
+		    9.1.2.1 对于定宽块状元素
+			    定宽块状元素指的是块状元素的宽度width为一定值。即在块状标签里声明块元素的宽度。
+				这时可以通过声明左右margin值来实现块状居中。即margin:20px auto;或者 margin-left:auto;margin-right:auto;同时上下可以随意设置
+			9.1.2.2 对于不定宽块状元素
+			    1.通过将块状元素包装成table，根据tabletable其长度根据其内文本长度决定这一特性，再用margin：0 auto设置居中
+			    2.将不定宽的块状元素包装成inline行内元素，再通过text-align:center 来实现
+				3.用float和relative来解决。先是将父层挪到页面右边，在将文字内容向左移动自身50%。具体代码见http://www.imooc.com/code/6365。
+	9.2 设置垂直居中
+	    9.2.1 父元素确定的单行文本
+		    设定文字高度(height)和行高度(line-height)相同即可。确定是当文字内容的长度大于块的宽时，就有内容脱离了块。
+		9.2.2 父元素高度确定的多行文本
+		    对于多行文本、图片等的垂直居中
+			http://www.imooc.com/code/6370
+		

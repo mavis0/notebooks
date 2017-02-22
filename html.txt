@@ -1,0 +1,78 @@
+1.基本内容
+    html是网页内容。
+    css是样式，表现。如同人的外衣。
+    javascript是交互，用来实现网页上的特效。
+2.html
+    2.1 标签
+        <h1></h1>是标题标签
+	    <p></p>是段落标签
+	    <img>是图片标签 用法：<img scr = "1.jpg">
+	2.2 标签的语法
+	    标签成对出现，而且不区分大小写。通用是小写。
+	2.3 html文件基本构成
+	    <html>根标签
+		    <head></head>
+		    <body></body>
+		</html>
+	2.4 head标签
+	    文档的头部描述文档的各种属性和信息
+		<head>
+			<title>...</title>标题信息，浏览器的标签栏上。
+			<meta>
+			<link>
+			<style>...</style>
+			<script>...</script>
+        </head>
+	2.5 html代码注释
+	    <!-- 注释 -->
+		crtl + / 快捷注释
+    2.6 标签功能
+	    <p></p>段落功能
+		<hx></hx>文章的标题，共有h1, h2, h3, h4, h5, h6 六级标题
+		<em></em>表示强调，默认斜体
+		<strong></strong>更强烈的强调，默认是黑体
+		<span></span>设置单独的样式
+		<q></q>简短文本引用，加双引号。语义：引用别人的话
+		<blockquote></blockquote>长文本引用
+		<br /> 换行。是xhtml1.0写法，html4.01写法是<br>.#html中忽略空格和回车
+		&nbsp；空格
+		<hr /> 添加水平横线。是xhtml1.0写法，html4写法是<hr>
+		<address></address>添加地址信息，浏览器默认显示是斜体
+		<code></code>编程代码，多行用<pre><pre>
+        <ul>-<li>添加列表，注意ul-li是没有前后循序，默认样式每个li前有一个圆点
+	        <ul>
+			    <li></li>
+				<li></li>
+			</ul>
+		<ol>-<li>也是添加列表，但这个是有顺序的，默认样式从1开始的序号
+        <div></div>用来确定逻辑部分
+            id可以用来命名逻辑部分，用法<div id = "模块名称"></div>
+		创建列表
+		    <table></table> 表开始和结束
+			<tbody></tbody> 是否等表格全部下载完再显示 添加<tbody>是全是下载完再显示
+			<tr></tr> 表格的一行
+			<td></td> 表格的一个单元格，嵌套在<tr>中使用
+			<th></th> 表格头部的一个单元格，表格表头，也是嵌套在<tr>中使用，默认粗体居中
+		列表的标题和摘要：
+		    <table summary = "表格简介文本"></table>
+			<table>
+			    <caption></caption>   标题文本
+ 				<tr>
+		<a></a>用来链接到另一个页面   用法：<a href = "目标网址" title = "鼠标划过显示的文本">链接显示的文本</a>
+		<a></a>还可以在新浏览器窗口中打开一个页面 用法：<a href = "目标网址" target = "_blank">链接显示的文本</a>
+		<img>插入图片 用法：<img scr = "图片地址" alt = "下载失败是的替换文本" title = "提示文本">
+	    表单标签：（表单是指用户可以把输入的数据传送到服务器端）
+		    <form    method="post"   action="save.php">
+				<label for="username">用户名:</label> 
+				<input type="text" name="username" /> 当type是"text"时，输入框是文本框。name为文本框命名，为后端程序使用。value起提示作用
+				<label for="pass">密码:</label>
+				<input type="password" name="pass" />当type是"password"时，输入框是密码框。
+			</form>
+		    <textarea><textarea>用来在表单输入大量文字，用法：<textarea rows="行数" col="列数">文本<textarea>
+		    <input type="radio/checkbox" value="值" name="名称" checked="checked" /> 单选框/复选框 value提交数据到后台 name为后台使用 checked默认选中 单选同一组名字要一样
+			<input type="submit" value="按钮显示的文字" name="名称" id="和label控件相同"> 提交按钮
+			<input type="reset" value="按钮显示的文字" name="名称">  重置按钮
+			<select multiple="multiple"> 下拉列表框  multiple选项是指下拉选项是否可以多选
+			    <option value="提交值" selected="selected">显示值</option> selected 选项默认选中
+			</select>
+		<label for="控件id名称"></label>  标签id属性值必须和相关控件的id值相同

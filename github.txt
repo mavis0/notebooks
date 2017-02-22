@@ -1,0 +1,37 @@
+安装git:
+    Lunix:
+	    sudo apt-get install git
+	Windows:
+	    直接官方下载，把git shell当作命令行
+	Mac:
+	    安装Xcode
+将机器上所有仓库与你的github账号绑定：
+    $git config --global user.name "Your Name"
+	$git config --global user.email "email@example.com"
+创建repo:
+	第一步：
+		新建空文件夹。
+	第二步：
+		$git init
+
+添加新文件,比如readme.txt:
+    由于可以在一个暂存区可以缓存，即可多次add文件，然后在commit。所以有两步。
+	第一步：
+	    $git add readme.txt
+	第二步：
+	    $git commit -m "wrote a readme file"  #-m后面是提交的说明，最好是有意义的。
+
+$git status  掌握当前仓库的情况
+$git diff + 文件名   是本地和暂存区的比较
+$git diff HEAD -- + 文件名 是本地和版本库的比较
+
+staged 暂存区，也就是有没有被add进入缓存的意思
+untracked 从来没有添加过，即没有进入暂存区。
+
+$git log  显示从最近到最远的提交日志，同时会显示commit的版本号，也就是commit id。  --pretty=oneline参数可以显示简洁版
+
+版本退回，也就是读档
+    退回上一个版本：git reset --hard HEAD^。在git中，用HEAD表示当前版本，上一个版本就是HEAD^，上上个版本就是HEAD^^.往上100个版本就是HEAD~100。
+    git reset --hard +commit id。此时git log已经看不到之前的最新的版本，可以用commit id找回之前的版本。不必输入全id，git找的到即可。
+	git reflog 查看之前所有的版本，可以从这里看到所有版本的commit id。
+    	

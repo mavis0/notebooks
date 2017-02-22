@@ -1,0 +1,12 @@
+ctrl + p =======> Goto anything 可以找到文件 支持模糊匹配
+ctrl + shift + p =======> 命令模式
+ctrl + h =======> find & replace
+ctrl + d =======> 多行游标
+    ctrl + k =======> 跳过一个游标
+ctrl + shift + d ========> 复制游标所在行文本
+alt + f3 ========> 快速所有多行光标
+alt + . =========> 快速闭合网页标签
+ctrl + enter ========> 当前行下一行添加新内容
+crtl + shift + enter ========> 当前行上一行添加新内容
+ctrl + ] ========> 增加缩进
+crtl + shift + v ======>保持缩进粘贴
