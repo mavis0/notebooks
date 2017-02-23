@@ -50,9 +50,44 @@
 	    在本地创建了一个本地库之后，可以在github上创建一个git仓库，完成同步。
 		git remote add origin git@github.com:michaelliao/learngit.git 修改用户名和仓库名即可将两个仓库关联。
 		git push -u origin master 将本地库推送到远程库
-		git push origin master  以后再修改了之后同步
+		git push origin master  以后再修改了之后同步，这里是同步的主分支。
 	从远程库克隆
 	    git clone git@github.com:michaelliao/gitskills.git 修改用户名和仓库名即可将
 分支管理：
-    
-    	
+    HEAD表示当前工作区所在分支，master表示主分支
+    查看分支：git branch
+	创建分支：git branch <name>
+	切换分支：git checkout <name>
+	创建+切换分支：git checkout -b <name>
+	合并某分支到当前分支：git merge <name>
+	当合并出现冲突时，即有两个或多个分支修改了同一个文件，会发生冲突，会把详细的冲突情况写在冲突文件中。如果分支被删除，则git log也看不到分支信息。称为Fast forward模式。
+但采用类似git merge --no-ff -m "merge with no-ff" dev的命令时，会在合并的同时，提交一个新的commit。	
+	删除分支：git branch -d <name>
+	bug分支：可以采用git stash将工作状态‘藏起来’，执行命令后，工作区为空。此时新建bug分支，修改完成后再和mster分支合并，即可修复bug。git stash pop可以恢复封印，可恢复工作区，并且master上的bug也修复了。
+	         git stash list：查看封印列表。
+			 git stash apply：恢复某一个封印
+			 git stash drop：删除某一个封印
+	Feature分支：开发新功能是最好新建一个feature分支，可以在未合并且以后都不需要这个功能时，git branch -D <feature> 强行删除这个分支
+	分支推送：git push <name>，origin master即为主分支，非主分支也可以推送，取决与个人。本地新建的分支如果不推送到远程，对其他人就是不可见的；
+	git log --graph --pretty=oneline --abbrev-commit  查看历史分支流程提交信息
+	多人协作：
+	1.首先，可以试图用git push origin branch-name推送自己的修改；
+	2.如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+	3.如果合并有冲突，则解决冲突，并在本地提交；
+	4.没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+	  如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+标签管理：
+    标签是有意义的commit id。默认只存在本地。
+	git tag <name>  打标签
+	git tag 查看所有标签
+	git tag <name> <commit id> 默认是为最新的commit打标签，这个是为过去的commit打标签。可用git log查看标签列表
+	git tag -a <tagname> -m "blablabla..."  可以指定标签信息
+	git tag -s <tagname> -m "blablabla..."  可以用PGP签名标签，私有
+	git show <tagname> 可以看到上面的blalalal..
+    命令git push origin <tagname>可以推送一个本地标签；
+	命令git push origin --tags可以推送全部未推送过的本地标签；
+	命令git tag -d <tagname>可以删除一个本地标签；
+	命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
+自定义git:可以自己配置git的如外观字体之类的。如git config --global color.ui true 可百度更多
+
+	
