@@ -161,3 +161,31 @@
 		    对于多行文本、图片等的垂直居中
 			http://www.imooc.com/code/6370
 		
+10. 导航菜单的制作
+    10.1 垂直菜单的制作
+	    用<ul><li>来构建菜单。
+		基本的样式清除：  *{margin:0;padding:0}
+		无序列表圆点去除： ul{list-style:none}
+		下划线去除：   a{text-decoration:none}
+		文本缩进标签 text-indent 不会影响总体宽度（padding会）
+		需要将a标签设置为块元素，才能设高宽、hover效果   代码：a{display:block}
+		hover格式   a:hover{}鼠标滑过选项会发生转变
+	10.2 水平菜单的制作
+	    结构与垂直菜单一直
+		与垂直菜单相比
+		1、li添加了float(主要)
+		2、ul的宽度限制去掉了(主要)
+		3、a的text-indent换成了text-align
+	10.3 圆角菜单的制作
+	    1.圆角菜单的制作，通过设置背景，改变外观样式。
+		通过a：hover，可以为菜单增加交互效果。
+		2.横向菜单与圆角菜单的却别是：为ul增加一个 装饰线 border-bottom、为a标签添加圆角背景，宽与高相适应、有一个默认的选中状态，所以要为a标签加上一个class="on" 在为它的样式添加上一个on，最后移动它的位置（x，y）
+
+		圆角菜单：border-radius; /* CSS */
+		background-image:url(); /* 插入图片 */
+		background-position: /* 图片定位 */
+	10.4 伸缩菜单的制作--高度发生变化
+	    hover属性下增加改变a标签的高度height:40px，这样是向下增加的，设置margin-top为负值，向反方向移动margin-top:-10px，但文字也向上移动国，可设置a标签line-height:40px
+	10.5 伸缩菜单的制作--宽度发生变化
+	    需要用到JavaScript 从http://www.imooc.com/video/93
+	    

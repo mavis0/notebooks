@@ -13,4 +13,4 @@
 解压zip压缩包  unzip
 显示资源管理器 top
 显示树状文件 tree
-显示网络配置 ifconfig
+显示网络配置 ipconfig
